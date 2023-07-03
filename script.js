@@ -1,5 +1,6 @@
 
 $(function () {
+  // Setting current date top of page
   var date = dayjs();
   $('#currentDay').text(date.format('MMM D, YYYY'));
   var hour=dayjs().hour();
@@ -11,17 +12,18 @@ $(function () {
   console.log(toExactMinute)
   setInterval(colorUpdate, toExactMinute);
 
+  // check current hour aganist id, update color element
   function colorUpdate(){
     var hourTime
     $('.time-block').each(function() {
       var id=$(this).attr('id');
+      // hourNum return only number
       var hourNum= id.match(/\d+/)[0];
       hourTime={
         html:id,
         militaryTime:hourNum
       };
       if (hourTime['militaryTime']<hour){
-        // var classes=hourTime['html'];
         $("#"+hourTime['html']).removeClass("future past present");
         $("#"+hourTime['html']).addClass("past");
       }
@@ -35,6 +37,7 @@ $(function () {
     });
   }
 
+  // Gets input from textarea, store local storage
   $("div.time-block").on("click", "button", function(event){
     $(event.target).css("background-color", "pink");
     var userInput=$(this).siblings("#input").val();
@@ -47,6 +50,7 @@ $(function () {
     localStorage.setItem(schduleHour,JSON.stringify(inputObject));
   });
 
+// Get each input from local storage, append textarea
 if (JSON.parse(localStorage.getItem("9AM") != null)){
 var nine=JSON.parse(localStorage.getItem("9AM"));
 $("#hour-9").children("#input").append(nine["text"])};
