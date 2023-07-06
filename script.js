@@ -3,18 +3,31 @@ $(function () {
   // Setting current date top of page
   var date = dayjs();
   $('#currentDay').text(date.format('MMM D, YYYY'));
-  var hour=dayjs().hour();
   
+  // var trial=dayjs().minute();
+  // console.log("mintue: " + trial)
   
+  // Need this to update on right mintue
   colorUpdate();
+
+
+
   // var toExactMinute = 60000 - (date.second()*1000 % 60000);
-  var toExactMinute =60000 - (date.second()*1000);
-  console.log(toExactMinute)
-  setInterval(colorUpdate, toExactMinute);
+  var toExactMinute = 60000 - (date.second()*1000);
+
+  // function trial2(){
+  // console.log(1)
+  // };
+  // setInterval(trial2);
+  setInterval(colorUpdate);
+
+
+
 
   // check current hour aganist id, update color element
   function colorUpdate(){
     var hourTime
+    var hour=dayjs().hour();
     $('.time-block').each(function() {
       var id=$(this).attr('id');
       // hourNum return only number
