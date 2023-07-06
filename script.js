@@ -1,28 +1,12 @@
 
+
 $(function () {
   // Setting current date top of page
   var date = dayjs();
   $('#currentDay').text(date.format('MMM D, YYYY'));
   
-  // var trial=dayjs().minute();
-  // console.log("mintue: " + trial)
-  
-  // Need this to update on right mintue
-  colorUpdate();
-
-
-
-  // var toExactMinute = 60000 - (date.second()*1000 % 60000);
-  var toExactMinute = 60000 - (date.second()*1000);
-
-  // function trial2(){
-  // console.log(1)
-  // };
-  // setInterval(trial2);
+  // update color of time blocks
   setInterval(colorUpdate);
-
-
-
 
   // check current hour aganist id, update color element
   function colorUpdate(){
@@ -52,7 +36,8 @@ $(function () {
 
   // Gets input from textarea, store local storage
   $("div.time-block").on("click", "button", function(event){
-    $(event.target).css("background-color", "pink");
+    $(event.target).css("background-color", "grey");
+    setTimeout(()=>{$(event.target).css("background-color", "#1AABD7")},2000)
     var userInput=$(this).siblings("#input").val();
     schduleHour=$(this).siblings(".hour").text();
 
