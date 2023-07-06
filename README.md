@@ -27,4 +27,4 @@ Enter your events into the corresponding hour to create an overview of your day.
 
 N/A
 
-## [Scheduler Website Link](https://l-lavelle.github.io/Code-Quiz/)
+## [Scheduler Website Link](https://l-lavelle.github.io/Work-Day-Scheduler/)
